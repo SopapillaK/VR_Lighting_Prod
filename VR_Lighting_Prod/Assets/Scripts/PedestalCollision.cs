@@ -12,7 +12,9 @@ public class PedestalCollision : MonoBehaviour
 
     //[SerializeField]
     //private PillerColor _color;
-    public bool rightCube = false;
+    public GameObject light;
+    private bool cube = false;
+    public bool rightCube { get { return cube; } private set { cube = value; light.SetActive(cube);} }
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<CubeColor>() != null && this.gameObject.GetComponent<CubeColor>() != null)
